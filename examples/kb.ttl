@@ -1,4 +1,7 @@
+@prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
 @prefix arp: <https://www.ntnu.edu/physmet/data/arp/> .
+@prefix auth: <http://publications.europa.eu/resource/authority/> .
+@prefix avail: <http://publications.europa.eu/resource/authority/planned-availability/> .
 @prefix avb: <https://www.ntnu.edu/physmet/data/avb/> .
 @prefix chameo: <https://w3id.org/emmo/domain/characterisation-methodology/chameo#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -9,7 +12,6 @@
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix frapo: <http://purl.org/cerif/frapo/> .
-@prefix ns1: <chamio:> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pers: <https://www.ntnu.edu/physmet/people/> .
@@ -22,6 +24,52 @@
 @prefix temgo: <https://www.ntnu.edu/temgemini/vocab/temgo#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+accr:CONFIDENTIAL a dcterms:RightsStatement ;
+    rdfs:label "confidential"@en ;
+    vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Information that is not disclosed."@en .
+
+accr:NON_PUBLIC a dcterms:RightsStatement ;
+    rdfs:label "non-public"@en ;
+    vann:usageNote "This category may include resources that contain sensitive or personal information."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Not publicly accessible for privacy, security or other reasons."@en .
+
+accr:PUBLIC a dcterms:RightsStatement ;
+    rdfs:label "public"@en ;
+    vann:usageNote "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Publicly accessible by everyone."@en .
+
+accr:RESTRICTED a dcterms:RightsStatement ;
+    rdfs:label "restricted"@en ;
+    vann:usageNote "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Only available under certain conditions."@en .
+
+accr:SENSITIVE a dcterms:RightsStatement ;
+    rdfs:label "sensitive"@en ;
+    vann:usageNote "Sensitive non-classified resources may contain personal data, but this is not a defining criterion. Information on the presence of personal data should be provided separately. This category covers information that requires protection even though it is not subject to formal EU security classification."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en .
+
+avail:AVAILABLE a auth:planned-availability ;
+    rdfs:label "available"@en ;
+    skos:definition "Data is available for a few years, medium term planning."@en .
+
+avail:EXPERIMENTAL a auth:planned-availability ;
+    rdfs:label "experimental"@en ;
+    skos:definition "Data is available on a trial basis for a short period, short term planning."@en .
+
+avail:STABLE a auth:planned-availability ;
+    rdfs:label "stable"@en ;
+    skos:definition "Data will remain available in the long term."@en .
+
+avail:TEMPORARY a auth:planned-availability ;
+    rdfs:label "temporal"@en ;
+    skos:definition "Data can disappear at any time, no planning."@en .
 
 org:Elkem a foaf:Organization ;
     vann:preferredNamespacePrefix "elkem" ;
@@ -160,606 +208,606 @@ arp:data-EDS-ARP003-Crust a emmo:Dataset ;
     ddoc:contactPoint pers:MarisaDiSabatino .
 
 avb:EDS-ARP001 a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "EDS-ARP001"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP001 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-EDS-ARP001 .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-EDS-ARP001 ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:EDS-ARP003 a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "EDS-ARP003"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP003 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-EDS-ARP003 .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-EDS-ARP003 ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP001-ARP001-1x a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP001-ARP001-1x"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP001 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-1x .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-1x ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP001-ARP001-2x a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP001-ARP001-2x"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP001 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-2x .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-2x ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP001-ARP001-3x a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP001-ARP001-3x"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP001 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-3x .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-3x ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP001-ARP001-Average_values_for_the_4_scans a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP001-ARP001-Average_values_for_the_4_scans"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP001 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-Average_values_for_the_4_scans .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-Average_values_for_the_4_scans ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP001-ARP001-LongScan a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP001-ARP001-LongScan"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP001 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-LongScan .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP001-ARP001-LongScan ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP002-ARP002-LongScan a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP002-ARP002-LongScan"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP002 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP002-ARP002-LongScan .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP002-ARP002-LongScan ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:GDMS-ARP003-ARP003-LongScan a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "GDMS-ARP003-ARP003-LongScan"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ARP003 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:GDMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP003-ARP003-LongScan .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 arp:data-GDMS-ARP003-ARP003-LongScan ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 avb:JM11-EDS-Areas-analyzed-with-SIMS a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-EDS-Areas-analyzed-with-SIMS"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-EDS-Areas-analyzed-with-SIMS .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-EDS-Areas-analyzed-with-SIMS ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-Imaging-Areas-analyzed-with-SIMS a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging-Areas-analyzed-with-SIMS"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-Imaging-Areas-analyzed-with-SIMS .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-Imaging-Areas-analyzed-with-SIMS ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-Imaging-treeweaver.yaml a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging-treeweaver.yaml"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-Imaging-treeweaver.yaml .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-Imaging-treeweaver.yaml ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS-220303b> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS-220303b"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS-220303b> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS-220303b> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS-220304i> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS-220304i"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS-220304i> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS-220304i> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS-info.yaml> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS-info.yaml"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS-info.yaml> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS-info.yaml> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-SIMS_overview.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-SIMS_overview.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-SIMS_overview.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-SIMS_overview.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between2.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between2.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between2.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_between2.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close2.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close2.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close2.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-assumed_low_B_area_close2.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_namo_particles_cl.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_namo_particles_cl.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_namo_particles_cl.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_namo_particles_cl.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_overview.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_overview.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_overview.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_overview.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_particles_ow.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_particles_ow.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_particles_ow.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220303b-hi_B_area_particles_ow.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-SIMS_overview.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-SIMS_overview.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-SIMS_overview.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-SIMS_overview.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between2.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between2.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between2.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_between2.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close2.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close2.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close2.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-assumed_low_B_area_close2.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_namo_particles_cl.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_namo_particles_cl.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_namo_particles_cl.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_namo_particles_cl.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_overview.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_overview.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_overview.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_overview.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_particles_ow.tif> a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_particles_ow.tif"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_particles_ow.tif> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/avb/data-JM11-Imaging/Areas-analyzed-with-SIMS/220304i-hi_B_area_particles_ow.tif> ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220303b a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220303b"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220303b .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220303b ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220303i a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220303i"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220303i .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220303i ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220303n a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220303n"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220303n .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220303n ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220304i a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220304i"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304i .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304i ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220304j a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220304j"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304j .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304j ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220304k a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220304k"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304k .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304k ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220304l a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220304l"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304l .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304l ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220304m a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220304m"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304m .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304m ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-220304n a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-220304n"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304n .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-220304n ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-JM_samples_logbook-page1.jpg a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-JM_samples_logbook-page1.jpg"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-JM_samples_logbook-page1.jpg .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-JM_samples_logbook-page1.jpg ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM11-SIMS-JM_samples_logbook-page2.jpg a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM11-SIMS-JM_samples_logbook-page2.jpg"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-JM_samples_logbook-page2.jpg .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM11-SIMS-JM_samples_logbook-page2.jpg ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-EDS-220303h a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-EDS-220303h"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-EDS-220303h .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-EDS-220303h ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-EDS-220304f a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-EDS-220304f"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-EDS-220304f .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-EDS-220304f ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-Imaging-Areas-analyzed-with-SIMS a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-Imaging-Areas-analyzed-with-SIMS"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-Imaging-Areas-analyzed-with-SIMS .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-Imaging-Areas-analyzed-with-SIMS ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220303d a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220303d"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303d .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303d ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220303e a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220303e"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303e .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303e ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220303g a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220303g"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303g .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303g ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220303h a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220303h"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303h .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220303h ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220304e a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220304e"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220304e .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220304e ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220304f a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220304f"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220304f .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220304f ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-220304h a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-220304h"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220304h .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-220304h ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-JM_samples_logbook-page1.jpg a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-JM_samples_logbook-page1.jpg"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-JM_samples_logbook-page1.jpg .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-JM_samples_logbook-page1.jpg ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JM12-SIMS-JM_samples_logbook-page2.jpg a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JM12-SIMS-JM_samples_logbook-page2.jpg"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JM12 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-JM_samples_logbook-page2.jpg .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JM12-SIMS-JM_samples_logbook-page2.jpg ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-EDS-Areas-analyzed-with-SIMS a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-EDS-Areas-analyzed-with-SIMS"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-EDS-Areas-analyzed-with-SIMS .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-EDS-Areas-analyzed-with-SIMS ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-EPMA-Exp1 a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-EPMA-Exp1"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:EPMA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-EPMA-Exp1 .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-EPMA-Exp1 ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-Imaging-Areas-analyzed-with-SIMS a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-Imaging-Areas-analyzed-with-SIMS"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SEM ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-Imaging-Areas-analyzed-with-SIMS .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-Imaging-Areas-analyzed-with-SIMS ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406ae a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406ae"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406ae .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406ae ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406ag a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406ag"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406ag .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406ag ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406e a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406e"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406e .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406e ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406f a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406f"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406f .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406f ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406g a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406g"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406g .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406g ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406h a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406h"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406h .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406h ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-220406i a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-220406i"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406i .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-220406i ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-JN_JO_and_JP_samples_logbook-page1.jpg a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-JN_JO_and_JP_samples_logbook-page1.jpg"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-JN_JO_and_JP_samples_logbook-page1.jpg .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-JN_JO_and_JP_samples_logbook-page1.jpg ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-SIMS-JN_JO_and_JP_samples_logbook-page2.jpg a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-SIMS-JN_JO_and_JP_samples_logbook-page2.jpg"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SIMS ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-JN_JO_and_JP_samples_logbook-page2.jpg .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-SIMS-JN_JO_and_JP_samples_logbook-page2.jpg ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 avb:JO11-Synchrotron-Cu1_cooling_10Cmin a emmo:Measurement ;
-    ns1:hasOperator pers:AnderasVollBugten ;
     dcterms:title "JO11-Synchrotron-Cu1_cooling_10Cmin"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 avb:JO11 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:Synchrotron ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-Synchrotron-Cu1_cooling_10Cmin .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 avb:data-JO11-Synchrotron-Cu1_cooling_10Cmin ;
+    chameo:hasOperator pers:AnderasVollBugten .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-101025/10k> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-101025/10k"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-101025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/10k> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/10k> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-101025/5k> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-101025/5k"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-101025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_facet> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_facet"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-101025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_facet> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_facet> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_interesting_particle> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_interesting_particle"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-101025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_interesting_particle> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k_magnified_on_one_interesting_particle> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-101025/5k_wider> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-101025/5k_wider"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-101025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k_wider> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-101025/5k_wider> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/1,5k_magnified_particle_that_contained_the_facets> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/1,5k_magnified_particle_that_contained_the_facets"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/1,5k_magnified_particle_that_contained_the_facets> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/1,5k_magnified_particle_that_contained_the_facets> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/10k> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/10k"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/10k> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/10k> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture_better_focus> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture_better_focus"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture_better_focus> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/1k_magnified_tri_particle_with_smooth_and_bumpy_texture_better_focus> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/230_magnified_wideview_of_the_particles> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/230_magnified_wideview_of_the_particles"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/230_magnified_wideview_of_the_particles> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/230_magnified_wideview_of_the_particles> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/5k> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/5k"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_facet> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_facet"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_facet> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_facet> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_interesting_particle> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_interesting_particle"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_interesting_particle> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k_magnified_on_one_interesting_particle> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/5k_wider> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/5k_wider"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k_wider> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/5k_wider> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-Al40Si-221025/800_magnified_on_two_particles_with_different_textures,_interesting_for_eds> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-Al40Si-221025/800_magnified_on_two_particles_with_different_textures,_interesting_for_eds"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-Al40Si-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/800_magnified_on_two_particles_with_different_textures,_interesting_for_eds> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-Al40Si-221025/800_magnified_on_two_particles_with_different_textures,_interesting_for_eds> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-AlSi20-221025/1.5k_magnified_zoom_on_one_spherical_particle> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-AlSi20-221025/1.5k_magnified_zoom_on_one_spherical_particle"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-AlSi20-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/1.5k_magnified_zoom_on_one_spherical_particle> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/1.5k_magnified_zoom_on_one_spherical_particle> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-AlSi20-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle_-_nd_pic> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle_-_nd_pic"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-AlSi20-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle_-_nd_pic> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/1.5kmagnified_single_byphasic_particle_-_nd_pic> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 <https://www.ntnu.edu/physmet/data/avb/SEM-ELKEM-AlSi20-221025/300_magnified_wide_view> a emmo:Measurement ;
-    ns1:hasOperator pers:ArmelPerrotin ;
     dcterms:title "SEM-ELKEM-AlSi20-221025/300_magnified_wide_view"@en ;
     emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 arp:ELKEM-AlSi20-221025 ;
     emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a emlab:SemA ;
-    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/300_magnified_wide_view> .
+    emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 <https://www.ntnu.edu/physmet/data/arp/data-SEM-ELKEM-AlSi20-221025/300_magnified_wide_view> ;
+    chameo:hasOperator pers:ArmelPerrotin .
 
 pers:AliElashery a foaf:Person ;
     foaf:mbox "ali.elashery@ntnu.no" ;
