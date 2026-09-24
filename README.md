@@ -25,7 +25,7 @@ flowchart LR
   D -- wasGeneratedBy --> PR("project")
   S(sample):::blueBox -- contactPoint --> CP
   S -- wasGeneratedBy --> PR
-  #S -. hasComposition .-> C("composition"):::lightBlueBox
+  %%S -. hasComposition .-> C("composition"):::lightBlueBox
   S -- creator --> ST("researcher")
   D -- rightsHolder --> RH("organisation")
   D -- license --> LD("license document")
