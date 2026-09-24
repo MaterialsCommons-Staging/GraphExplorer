@@ -1,10 +1,13 @@
 # Graph Explorer
 A web application for exploring a knowledge graph.
 
+The purpose of this webapp is (i) to provide an early demonstration of the widgets created in D3.1 and (ii) provide a useful tool for exploring a knowledge graph.
 
-Initially this webapp will be demonstrated in the domain of physical metallurgy.
+For the early demonstration, we use a description of experimental datasets for physical metallurgy produced in the Norwegian [SFI PhysMet](https://www.ntnu.edu/physmet) project.
 
-The figure below shows how each experimental dataset in the knowledge graph is defined and how it relates to other resources.
+The figure below shows how each experimental dataset in the
+[knowledge graph](examples/kb.ttl) is defined and how it relates to other
+resources.
 
 ```mermaid
 ---
